@@ -38,7 +38,7 @@ class ResetPwdForm extends Component {
     const { getFieldDecorator } = this.props.form;
     const formItemLayout = {
       labelCol: { span: 4 },
-      wrapperCol: { span: 16 }
+      wrapperCol: { span: 6 }
     };
     //对动作的操作的样式
     const formItemLayoutWithOutLabel = {
