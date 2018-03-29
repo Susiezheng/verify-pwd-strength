@@ -1,7 +1,7 @@
 # verify-pwd-strength
 
 
-![test](./pwd.gif)
+![test](./pwdStatus.gif)
 
 
 
