@@ -1,0 +1,57 @@
+variables:
+  GIT_STRATEGY: none
+
+stages:
+  - prepare
+  - build
+  - npm-publish
+
+prepare:
+  stage: prepare
+  variables:
+    GIT_STRATEGY: fetch
+  script:
+    - /bin/bash ./ci_script/prepare.sh
+  tags:
+    - node1
+  only:
+    - /(?i).*-release$/
+    - /(?i).*-bate$/
+    - zouweijie
+    - yzh
+
+build:
+  stage: build
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - echo "current directory:`pwd`"
+    # - sed -i "s/console.log\(.*\)$/\/\/ &/g" `grep "console.log\(.*\)$" -rl ./components`
+    - /bin/bash ./ci_script/build.sh
+    - npm run deploy
+    - echo "$CI_BUILD_REF_NAME" > ./deploy/version_by_ci
+  dependencies:
+    - prepare
+  tags:
+    - node1
+  only:
+    - /(?i).*-release$/
+    - /(?i).*-bate$/
+    - zouweijie
+    - yzh
+
+npm-publish:
+  stage: npm-publish
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - /bin/bash ./ci_script/publish.sh
+  dependencies:
+    - build
+  tags:
+    - node1
+  only:
+    - /(?i).*-release$/
+    - /(?i).*-bate$/
+    - zouweijie
+    - yzh
