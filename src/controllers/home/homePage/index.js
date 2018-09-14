@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { message, PwdStatus } from 'edspUI';
+import { message, PwdStatus } from 'basicUI';
 import { Form, Modal, Button, Radio, Select, Input } from 'antd';
 import { userService } from 'services';
 import { hashHistory } from 'react-router';

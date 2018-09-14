@@ -142,7 +142,7 @@ module.exports = {
         extensions: ['.js', '.json', '.less', '.css'],
         //别名配置
         alias: {
-            'edspUI': 'components',
+            'basicUI': 'components',
             'Utils': 'utils',
             'Service': 'services',
             // 'Controls': 'Controls.json',
