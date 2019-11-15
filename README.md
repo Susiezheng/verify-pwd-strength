@@ -7,7 +7,7 @@
 
 ## 用于验证密码框强弱度显示
 
-### Webpack
+### npm下载插件到项目
 
 ```bash
 npm install --save verify-pwd-strength
